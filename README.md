@@ -19,11 +19,11 @@ docker run --name cron -d -v $(pwd)/crontabs:/etc/crontabs cronos
 
 ## Test
 ```shell
- # Enter container;
+ # Enter container
 docker exec -it cron sh
 
-# Watch the real-time updates made after each cron launch. 
-# You can get an error during this call. 
+# Watch the real-time updates made after each cron launch 
+# You can get an error during this call 
 # It's OK, wait for the first cron launch
 tail -F /var/log/cron.log 
 ```
