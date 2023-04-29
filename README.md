@@ -27,7 +27,7 @@ docker exec -it cron sh
 tail -F /var/log/cron.log 
 ```
 
-## Call other dockerized services by cron
+## Call other dockerized services using cronos
 
 It's good approach to use the cron as separated service without adding of not necessary complexity to the dockerized applications.
 
