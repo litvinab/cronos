@@ -37,7 +37,8 @@ You need to setup the cron service in the docker compose file similar to this on
 version: '2'
 services:
     your-service-name:
-        ... 
+        container_name: app
+        # ... service definition goes there ...
 
     cron:
         container_name: cronos
