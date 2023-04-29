@@ -2,13 +2,13 @@
 
 Simple dockerized cron which can call other dockerized services
 
-# Local CLI calls
+## Call commands inside the cronos container
 
 Default crontab file (`./crontabs/root`) content:
 
 `*/1 * * * * date "%d-%m-%y +%H:%M:%S" >> var/log/cron.log`
 
-## Build & Run
+### Build & Run
 ```shell
 # Build container
 docker build --tag cronos . 
@@ -17,7 +17,7 @@ docker build --tag cronos .
 docker run --name cron -d -v $(pwd)/crontabs:/etc/crontabs cronos
 ```
 
-## Test
+### Test
 ```shell
  # Enter container
 docker exec -it cron sh
@@ -27,11 +27,11 @@ docker exec -it cron sh
 tail -F /var/log/cron.log 
 ```
 
-# Other dockerized services CLI calls
+## Call other dockerized services by cron
 
 It's good approach to use the cron as separated service without adding of not necessary complexity to the dockerized applications.
 
-You need to setup the cron service in the docker compose file similar to this one down below:
+You need to setup the cron service in the docker compose file similar to this one down below.
 
 The main thing in this configuration is to use `/var/run/docker.sock` volume for cronos-based service.
 
