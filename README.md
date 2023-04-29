@@ -52,4 +52,5 @@ Crontab record example to call other services:
 
 `*/3 * * * * docker exec -t your-service-name sh -c '/var/www/app/bin/console ts:snapshots:get >> /var/log/cron.log'`
 
-Example of the project can be found here: *TBD*
+Example of the project can be found here: 
+[litvinab/cronos-example](https://github.com/litvinab/cronos-example)
