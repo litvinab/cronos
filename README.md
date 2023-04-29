@@ -33,6 +33,8 @@ It's good approach to use the cron as separated service without adding of not ne
 
 You need to setup the cron service in the docker compose file similar to this one down below:
 
+The main thing in this configuration is to use `/var/run/docker.sock` volume for cronos-based service.
+
 ```yml
 version: '2'
 services:
@@ -42,15 +44,22 @@ services:
 
     cron:
         container_name: cronos
+        image: litvinab/cronos
         volumes:
-            - "/var/run/docker.sock:/var/run/docker.sock" 
-            # you can add /etc/crontabs volume also
+          - "/var/run/docker.sock:/var/run/docker.sock"
+          - "./docker/cronos/crontabs:/etc/crontabs"
         restart: always
 ```
 
-Crontab record example to call other services:
+Crontab record example to call other services 
+(`./docker/cronos/crontabs`content):
 
-`*/3 * * * * docker exec -t your-service-name sh -c '/var/www/app/bin/console ts:snapshots:get >> /var/log/cron.log'`
+`*/1 * * * * docker exec -t your-service-name sh /shell/any-command.sh`
+
+Pay attention:
+- crontab file should have `./docker/cronos/crontabs/root` name to make it work;
+- make sure that `/shell/any-command.sh`is working inside the `app` container; Permissions error can be found;
+- make sure that `docker exec -t your-service-name sh /shell/any-command.sh` is working during the direct call at host machine;
 
 Example of the project can be found here: 
 [litvinab/cronos-example](https://github.com/litvinab/cronos-example)
