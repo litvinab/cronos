@@ -61,5 +61,5 @@ Pay attention:
 - `sh any-cli-command.sh`command should work inside the `app` container; Permissions error can be found;
 - `docker exec -t your-service-name sh any-cli-command.sh` command should work during the direct call at docker-hosted machine;
 
-Example of the project can be found here: 
+Example of the project setup can be found here: 
 [litvinab/cronos-example](https://github.com/litvinab/cronos-example)
