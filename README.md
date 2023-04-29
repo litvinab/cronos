@@ -1,6 +1,6 @@
 # cronos
 
-Simple dockerized cron which can call other docker containers.
+Simple dockerized cron which can call other dockerized services
 
 # Local CLI calls
 
