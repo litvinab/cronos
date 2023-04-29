@@ -23,8 +23,7 @@ docker run --name cron -d -v $(pwd)/crontabs:/etc/crontabs cronos
 docker exec -it cron sh
 
 # Watch the real-time updates made after each cron launch 
-# You can get an error during this call 
-# It's OK, wait for the first cron launch
+# You can get an error during this call. It's OK, wait for the first cron launch
 tail -F /var/log/cron.log 
 ```
 
