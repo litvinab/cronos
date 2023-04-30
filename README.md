@@ -46,7 +46,7 @@ services:
 
     cron:
         container_name: cronos
-        image: litvinab/cronos
+        image: litvinab/cronos:v0.1.0
         volumes:
           - "/var/run/docker.sock:/var/run/docker.sock"
           - "./docker/cronos/crontabs:/etc/crontabs"
