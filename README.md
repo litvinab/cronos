@@ -4,6 +4,8 @@ Simple dockerized cron to call other dockerized services
 
 ## Call commands inside the cronos container
 
+It can be not so useful, it's to demonstrate how it works.
+
 Default crontab file (`./crontabs/root`) content:
 
 `*/1 * * * * date "%d-%m-%y +%H:%M:%S" >> var/log/cron.log`
@@ -62,4 +64,4 @@ Pay attention:
 - `docker exec -t your-service-name sh any-cli-command.sh` command should work during the direct call at docker-hosted machine;
 
 Example of the project setup can be found here: 
-[litvinab/cronos-example](https://github.com/litvinab/cronos-example)
+[litvinab/cronos-demo](https://github.com/litvinab/cronos-demo)
